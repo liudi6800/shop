@@ -41,4 +41,9 @@ public class ShopPropertyServiceImpl implements ShopPropertyService {
         shopProperty.setUpdateDate(new Date());
         shopPropertyDao.updateShopProperty(shopProperty);
     }
+
+    @Override
+    public void deleteShopPropertyById(Integer id) {
+        shopPropertyDao.deleteShopPropertyById(id);
+    }
 }

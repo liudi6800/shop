@@ -46,7 +46,14 @@ public class ShopPropertyController {
         return ResponseData.success(null);
     }
 
-
+    @DeleteMapping("delete")
+    public ResponseData deleteShopPropertyById(Integer  id){
+        if(id==null){
+            return ResponseData.error(400,"非法请求");
+        }
+        shopPropertyService.deleteShopPropertyById(id);
+        return ResponseData.success(null);
+    }
 
 
 }

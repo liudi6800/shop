@@ -11,4 +11,6 @@ public interface ShopPropertyService {
     void addShopProperty(ShopProperty shopProperty);
 
     void updateShopProperty(ShopProperty shopProperty);
+
+    void deleteShopPropertyById(Integer id);
 }

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC
+        "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.fh.shop.dao.ShopTypeDao">
+
+    <insert id="addShopType" useGeneratedKeys="true" keyProperty="id" parameterType="com.fh.shop.entity.po.ShopType" >
+        insert into s_shoptype (name,pid,createDate,isDel) value (#{name},#{pid},#{createDate},#{isDel});
+    </insert>
+
+    <update id="updateShopType" parameterType="com.fh.shop.entity.po.ShopType">
+        update s_shoptype set  name=#{name},updateDate=#{updateDate},isDel=#{isDel}  where id=#{id}
+    </update>
+</mapper>

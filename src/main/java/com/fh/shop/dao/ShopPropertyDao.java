@@ -12,4 +12,5 @@ public interface ShopPropertyDao {
     public List<ShopProperty> selectShopPropertyData(ShopPropertyParms parms);
 
 
+    void addShopProperty(ShopProperty shopProperty);
 }

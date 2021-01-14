@@ -20,5 +20,9 @@
         limit #{startIndex},#{limit}
     </select>
 
+    <insert id="addShopProperty" parameterType="com.fh.shop.entity.po.ShopProperty">
+        insert into s_shop_property (name,nameCH,typeId,type,isSKU,isDel,createDate,author)
+        value (#{name},#{nameCH},#{typeId},#{type},#{isSKU},#{isDel},#{createDate},#{author});
+    </insert>
 
 </mapper>

@@ -1,13 +1,11 @@
 package com.fh.shop.controller;
 
+import com.fh.shop.entity.po.ShopProperty;
 import com.fh.shop.entity.vo.ResponseData;
 import com.fh.shop.entity.vo.ShopPropertyParms;
 import com.fh.shop.service.ShopPropertyService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
 
@@ -29,6 +27,13 @@ public class ShopPropertyController {
         }
         Map map= shopPropertyService.selectShopPropertyByParma(parms);
         return ResponseData.success(map);
+    }
+
+
+    @PostMapping("add")
+    public ResponseData addShopProperty(ShopProperty shopProperty){
+        shopPropertyService.addShopProperty(shopProperty);
+        return ResponseData.success(null);
     }
 
 

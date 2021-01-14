@@ -7,6 +7,7 @@ import com.fh.shop.service.ShopPropertyService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -26,5 +27,12 @@ public class ShopPropertyServiceImpl implements ShopPropertyService {
         map.put("count",count);
         map.put("data",shopProperties);
         return map;
+    }
+
+    @Override
+    public void addShopProperty(ShopProperty shopProperty) {
+        shopProperty.setIsDel(0);
+        shopProperty.setCreateDate(new Date());
+        shopPropertyDao.addShopProperty(shopProperty);
     }
 }

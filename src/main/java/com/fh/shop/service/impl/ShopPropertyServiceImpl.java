@@ -35,4 +35,10 @@ public class ShopPropertyServiceImpl implements ShopPropertyService {
         shopProperty.setCreateDate(new Date());
         shopPropertyDao.addShopProperty(shopProperty);
     }
+
+    @Override
+    public void updateShopProperty(ShopProperty shopProperty) {
+        shopProperty.setUpdateDate(new Date());
+        shopPropertyDao.updateShopProperty(shopProperty);
+    }
 }

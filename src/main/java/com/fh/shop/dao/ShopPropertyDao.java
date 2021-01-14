@@ -13,4 +13,6 @@ public interface ShopPropertyDao {
 
 
     void addShopProperty(ShopProperty shopProperty);
+
+    void updateShopProperty(ShopProperty shopProperty);
 }

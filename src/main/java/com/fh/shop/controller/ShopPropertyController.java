@@ -37,5 +37,16 @@ public class ShopPropertyController {
     }
 
 
+    @PostMapping("update")
+    public ResponseData updateShopProperty(ShopProperty shopProperty){
+        if(shopProperty.getId()==null){
+            return ResponseData.error(400,"非法请求");
+        }
+        shopPropertyService.updateShopProperty(shopProperty);
+        return ResponseData.success(null);
+    }
+
+
+
 
 }

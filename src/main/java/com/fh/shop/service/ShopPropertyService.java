@@ -9,4 +9,6 @@ public interface ShopPropertyService {
     Map selectShopPropertyByParma(ShopPropertyParms parms);
 
     void addShopProperty(ShopProperty shopProperty);
+
+    void updateShopProperty(ShopProperty shopProperty);
 }

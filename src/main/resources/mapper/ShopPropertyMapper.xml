@@ -25,4 +25,9 @@
         value (#{name},#{nameCH},#{typeId},#{type},#{isSKU},#{isDel},#{createDate},#{author});
     </insert>
 
+    <update id="updateShopProperty" parameterType="com.fh.shop.entity.po.ShopProperty">
+      update s_shop_property set  name=#{name},nameCH=#{nameCH},typeId=#{typeId},type=#{type},isSKU=#{isSKU},isDel=#{isDel},updateDate=#{updateDate},author=#{author}
+        where id=#{id};
+    </update>
+
 </mapper>

@@ -27,7 +27,13 @@ public class ShopBrandController {
     @Resource
     private HttpServletRequest request;
 
-
+/*
+*
+*
+*
+*
+*
+* */
 
     @GetMapping("getData")
     public ResponseData getData(ShopBrandParms parms){

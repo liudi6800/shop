@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC
+        "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.fh.shop.dao.ShopPropertyDao">
+
+    <select id="selectShopPropertyCount" parameterType="com.fh.shop.entity.vo.ShopPropertyParms" resultType="java.lang.Integer">
+        select count(2) from s_shop_property where 1=1
+        <if test="name!=null  and name!=''">
+            and name like '%${name}%'
+        </if>
+    </select>
+
+    <select id="selectShopPropertyData" parameterType="com.fh.shop.entity.vo.ShopPropertyParms" resultType="com.fh.shop.entity.po.ShopProperty">
+        select * from s_shop_property where 1=1
+        <if test="name!=null  and name!=''">
+            and name like '%${name}%'
+        </if>
+        limit #{startIndex},#{limit}
+    </select>
+
+
+</mapper>

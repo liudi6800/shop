@@ -16,7 +16,12 @@ public class ShopPropertyController {
 
     @Autowired
     private ShopPropertyService shopPropertyService;
-
+        /*
+        * 接口   http://192.168.1.224:8083/api/property/getData
+        *
+        * 参数  page当前页数  limit条数  必传
+        *
+        * */
     @GetMapping("getData")
     public ResponseData selectShopPropertyByParma(ShopPropertyParms parms){
         if(parms.getPage()==null){
@@ -29,14 +34,24 @@ public class ShopPropertyController {
         return ResponseData.success(map);
     }
 
-
+    /*
+     * 接口   http://192.168.1.224:8083/api/property/add
+     *
+     * 参数   详情看ShopProperty封装类
+     *
+     * */
     @PostMapping("add")
     public ResponseData addShopProperty(ShopProperty shopProperty){
         shopPropertyService.addShopProperty(shopProperty);
         return ResponseData.success(null);
     }
 
-
+    /*
+     * 接口   http://192.168.1.224:8083/api/property/update
+     *
+     * 参数   详情看ShopProperty封装类   id必传
+     *
+     * */
     @PostMapping("update")
     public ResponseData updateShopProperty(ShopProperty shopProperty){
         if(shopProperty.getId()==null){
@@ -46,6 +61,12 @@ public class ShopPropertyController {
         return ResponseData.success(null);
     }
 
+    /*
+     * 接口   http://192.168.1.224:8083/api/property/delete
+     *
+     * 参数    id必传
+     *
+     * */
     @DeleteMapping("delete")
     public ResponseData deleteShopPropertyById(Integer  id){
         if(id==null){

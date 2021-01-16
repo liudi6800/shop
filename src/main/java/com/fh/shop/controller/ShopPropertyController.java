@@ -4,8 +4,10 @@ import com.fh.shop.entity.po.ShopProperty;
 import com.fh.shop.entity.vo.ResponseData;
 import com.fh.shop.entity.vo.ShopPropertyParms;
 import com.fh.shop.service.ShopPropertyService;
+import com.fh.shop.utils.FileText;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.Map;
 
@@ -74,6 +76,12 @@ public class ShopPropertyController {
         }
         shopPropertyService.deleteShopPropertyById(id);
         return ResponseData.success(null);
+    }
+
+    @RequestMapping("uploadImgPath")
+    public ResponseData uploadImgPath(MultipartFile file){
+        String images = FileText.saveFile(file);
+        return ResponseData.success(images);
     }
 
 

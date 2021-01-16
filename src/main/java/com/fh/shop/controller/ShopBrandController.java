@@ -5,6 +5,7 @@ import com.fh.shop.entity.vo.ResponseData;
 import com.fh.shop.entity.vo.ShopBrandParms;
 import com.fh.shop.service.ShopBrandService;
 import com.fh.shop.utils.FileInput;
+import com.fh.shop.utils.FileText;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -64,7 +65,7 @@ public class ShopBrandController {
 
     @RequestMapping("uploadImgPath")
     public ResponseData uploadImgPath(MultipartFile file){
-        String images = FileInput.saveFile(file, "images", request);
+        String images = FileText.saveFile(file);
         return ResponseData.success(images);
     }
 }

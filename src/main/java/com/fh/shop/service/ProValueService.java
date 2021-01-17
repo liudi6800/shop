@@ -9,4 +9,6 @@ public interface ProValueService {
     List<ProValue> selectProValueByproId(Integer id);
 
     void addProValue(ProValue proValue);
+
+    void updateProValue(ProValue proValue);
 }

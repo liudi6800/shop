@@ -3,6 +3,7 @@ package com.fh.shop.dao;
 import com.fh.shop.entity.po.ProValue;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
 import java.util.List;
 
@@ -18,6 +19,6 @@ public interface ProValueDao {
     void addProValue(ProValue proValue);
 
 
-
-
+    @Update("update u_shop_provalue set name=#{name},nameCH=#{nameCH},proId=#{proId} where id=#{id}")
+    void updateProValue(ProValue proValue);
 }

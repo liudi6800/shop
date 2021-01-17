@@ -33,4 +33,12 @@ public class ProValueController {
         proValueService.addProValue(proValue);
         return ResponseData.success(null);
     }
+
+    @PostMapping("updateProValue")
+    public ResponseData updateProValue(ProValue proValue){
+        proValueService.updateProValue(proValue);
+        return ResponseData.success(null);
+    }
+
+
 }

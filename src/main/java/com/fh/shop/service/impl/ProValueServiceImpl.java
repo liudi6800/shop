@@ -25,4 +25,9 @@ public class ProValueServiceImpl implements ProValueService {
     public void addProValue(ProValue proValue) {
         proValueDao.addProValue(proValue);
     }
+
+    @Override
+    public void updateProValue(ProValue proValue) {
+        proValueDao.updateProValue(proValue);
+    }
 }

@@ -78,11 +78,6 @@ public class ShopPropertyController {
         return ResponseData.success(null);
     }
 
-    @RequestMapping("uploadImgPath")
-    public ResponseData uploadImgPath(MultipartFile file){
-        String images = FileText.saveFile(file);
-        return ResponseData.success(images);
-    }
-
+     
 
 }

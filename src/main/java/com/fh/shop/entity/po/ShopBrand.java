@@ -12,11 +12,11 @@ public class ShopBrand {
 
     private String bandE;
 
-    private String imgpath;
+        private String imgpath;
 
     private String bandDesc;
 
-    private String ord;
+    private Integer ord;
 
     private Integer isdel;
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
@@ -69,11 +69,11 @@ public class ShopBrand {
         this.bandDesc = bandDesc;
     }
 
-    public String getOrd() {
+    public Integer getOrd() {
         return ord;
     }
 
-    public void setOrd(String ord) {
+    public void setOrd(Integer ord) {
         this.ord = ord;
     }
 

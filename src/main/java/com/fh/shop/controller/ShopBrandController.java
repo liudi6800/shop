@@ -13,7 +13,9 @@ import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import java.io.IOException;
 import java.util.Map;
+import java.util.UUID;
 
 
 @RestController
@@ -64,8 +66,17 @@ public class ShopBrandController {
     }
 
     @RequestMapping("uploadImgPath")
-    public ResponseData uploadImgPath(MultipartFile file){
-        String images = FileText.saveFile(file);
+    public ResponseData uploadImgPath(MultipartFile file) throws IOException {
+
+        //获取上传文件的名 aaa.jpg  bbb.xlsx  cccc.zip
+        String fileName = file.getOriginalFilename();
+        //起新名
+        String newName= UUID.randomUUID().toString();
+        //处理文件格式
+        String fileType=fileName.substring(fileName.lastIndexOf("."));
+        String newFileName=newName+fileType;
+        newFileName="img"+"/"+newFileName;
+        String images = FileText.saveFile(file.getInputStream(),newFileName);
         return ResponseData.success(images);
     }
 }

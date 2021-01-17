@@ -40,5 +40,9 @@ public class ProValueController {
         return ResponseData.success(null);
     }
 
-
+    @DeleteMapping("delProValue")
+    public ResponseData delProValue(Integer  id){
+        proValueService.delProValue(id);
+        return ResponseData.success(null);
+    }
 }

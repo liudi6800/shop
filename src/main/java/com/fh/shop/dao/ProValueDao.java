@@ -1,6 +1,7 @@
 package com.fh.shop.dao;
 
 import com.fh.shop.entity.po.ProValue;
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
@@ -21,4 +22,7 @@ public interface ProValueDao {
 
     @Update("update u_shop_provalue set name=#{name},nameCH=#{nameCH},proId=#{proId} where id=#{id}")
     void updateProValue(ProValue proValue);
+
+    @Delete("delete from u_shop_provalue where id=#{id}")
+    void delProValue(Integer id);
 }

@@ -30,4 +30,9 @@ public class ProValueServiceImpl implements ProValueService {
     public void updateProValue(ProValue proValue) {
         proValueDao.updateProValue(proValue);
     }
+
+    @Override
+    public void delProValue(Integer id) {
+        proValueDao.delProValue(id);
+    }
 }

@@ -11,4 +11,6 @@ public interface ProValueService {
     void addProValue(ProValue proValue);
 
     void updateProValue(ProValue proValue);
+
+    void delProValue(Integer id);
 }

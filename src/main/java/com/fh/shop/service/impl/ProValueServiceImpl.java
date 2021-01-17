@@ -20,4 +20,9 @@ public class ProValueServiceImpl implements ProValueService {
 
         return proValueDao.selectProValueByproId(id);
     }
+
+    @Override
+    public void addProValue(ProValue proValue) {
+        proValueDao.addProValue(proValue);
+    }
 }

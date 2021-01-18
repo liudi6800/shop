@@ -14,6 +14,7 @@ import org.springframework.web.multipart.MultipartFile;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
+import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
@@ -50,6 +51,24 @@ public class ShopBrandController {
         return ResponseData.success(map);
     }
 
+
+    /*
+     *
+     *
+     * 接口   http://192.168.1.224:8083/api/brand/getAllBandData
+     *
+     * 参数   没有
+     *
+     * */
+
+    @GetMapping("getAllBandData")
+    public ResponseData getAllBandData(){
+
+        List<ShopBrand>list= shopBrandService.getAllBandData();
+        return ResponseData.success(list);
+    }
+
+
     /*
      * 接口    http://192.168.1.224:8083/api/brand/add
      *
@@ -78,7 +97,7 @@ public class ShopBrandController {
     /*
      * 接口    http://192.168.1.224:8083/api/brand/uploadImgPath
      *
-     * 参数   图片上传 
+     * 参数   图片上传
      *
      * */
     @RequestMapping("uploadImgPath")
@@ -95,4 +114,6 @@ public class ShopBrandController {
         String images = FileText.saveFile(file.getInputStream(),newFileName);
         return ResponseData.success(images);
     }
+
+
 }

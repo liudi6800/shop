@@ -35,6 +35,12 @@ public class ShopBrandServiceImpl implements ShopBrandService {
     }
 
     @Override
+    public List<ShopBrand> getAllBandData() {
+        return shopBrandDao.getAllBandData();
+    }
+
+
+    @Override
     public void addShopBrand(ShopBrand shopBrand) {
         shopBrand.setCreateDate(new Date());
         shopBrandDao.addShopBrand(shopBrand);
@@ -45,6 +51,7 @@ public class ShopBrandServiceImpl implements ShopBrandService {
         shopBrand.setUpdateDate(new Date());
         shopBrandDao.updateShopBrand(shopBrand);
     }
+
 
 
 }

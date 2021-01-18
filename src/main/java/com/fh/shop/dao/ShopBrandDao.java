@@ -3,6 +3,7 @@ package com.fh.shop.dao;
 import com.fh.shop.entity.po.ShopBrand;
 
 import com.fh.shop.entity.vo.ShopBrandParms;
+import org.apache.ibatis.annotations.Select;
 
 
 import java.util.List;
@@ -17,5 +18,6 @@ public interface ShopBrandDao {
     public void  addShopBrand(ShopBrand shopBrand);
 
     public void  updateShopBrand(ShopBrand shopBrand);
-
+    @Select("select * from s_shopbrand")
+    List<ShopBrand> getAllBandData();
 }

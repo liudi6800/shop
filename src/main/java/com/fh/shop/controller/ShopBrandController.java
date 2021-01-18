@@ -30,14 +30,14 @@ public class ShopBrandController {
     @Resource
     private HttpServletRequest request;
 
-/*
-*
-*
-*
-*
-*
-* */
-
+    /*
+     *
+     *
+     * 接口   http://192.168.1.224:8083/api/brand/getData
+     *
+     * 参数  page当前页数  limit条数  必传
+     *
+     * */
     @GetMapping("getData")
     public ResponseData getData(ShopBrandParms parms){
         if(parms.getPage()==null){
@@ -50,6 +50,12 @@ public class ShopBrandController {
         return ResponseData.success(map);
     }
 
+    /*
+     * 接口    http://192.168.1.224:8083/api/brand/add
+     *
+     * 参数   详情看ShopProperty封装类
+     *
+     * */
     @PostMapping("add")
     public ResponseData addShopBrand(ShopBrand shopBrand){
 
@@ -57,14 +63,24 @@ public class ShopBrandController {
         return ResponseData.success(null);
     }
 
-
+    /*
+     * 接口    http://192.168.1.224:8083/api/brand/update
+     *
+     * 参数   详情看ShopProperty封装类
+     *
+     * */
     @PostMapping("update")
     public ResponseData updateShopBrand(ShopBrand shopBrand){
 
         shopBrandService.updateShopBrand(shopBrand);
         return ResponseData.success(null);
     }
-
+    /*
+     * 接口    http://192.168.1.224:8083/api/brand/uploadImgPath
+     *
+     * 参数   图片上传 
+     *
+     * */
     @RequestMapping("uploadImgPath")
     public ResponseData uploadImgPath(MultipartFile file) throws IOException {
 

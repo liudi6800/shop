@@ -17,7 +17,13 @@ public class ShopTypeController {
 
     @Autowired
     private ShopTypeService shopTypeService;
-
+    /*
+     * 接口    http://192.168.1.224:8083/api/type/getData
+     *
+     * 参数  null
+     *
+     * 返回值 List集合
+     * */
     @GetMapping("getData")
     public ResponseData getData(){
 
@@ -26,7 +32,13 @@ public class ShopTypeController {
         return  ResponseData.success(list);
     }
 
-
+    /*
+     * 接口    http://192.168.1.224:8083/api/type/getDataByPid
+     *
+     * 参数  pid 必传
+     *
+     * 返回值 List集合
+     * */
     @GetMapping("getDataByPid")
     public ResponseData getDataByPid(Integer pid){
 
@@ -37,7 +49,13 @@ public class ShopTypeController {
         return  ResponseData.success(list);
     }
 
-
+    /*
+     * 接口    http://192.168.1.224:8083/api/type/add
+     *
+     * 参数  详情看ShopType类 必传
+     *
+     * 返回值 null
+     * */
     @PostMapping("add")
     public ResponseData addShopType(ShopType shopType){
         if(shopType.getName()==null && shopType.getPid()==null){
@@ -46,7 +64,13 @@ public class ShopTypeController {
         Integer id=shopTypeService.addShopType(shopType);
         return  ResponseData.success(id);
     }
-
+    /*
+     * 接口    http://192.168.1.224:8083/api/type/update
+     *
+     * 参数  详情看ShopType类 必传
+     *
+     * 返回值 null
+     * */
     @PostMapping("update")
     public ResponseData updateShopType(ShopType shopType){
         if(shopType.getId()==null){

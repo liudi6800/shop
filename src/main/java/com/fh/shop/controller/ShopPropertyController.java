@@ -78,6 +78,6 @@ public class ShopPropertyController {
         return ResponseData.success(null);
     }
 
-     
+
 
 }

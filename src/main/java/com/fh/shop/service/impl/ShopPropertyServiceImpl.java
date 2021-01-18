@@ -49,4 +49,10 @@ public class ShopPropertyServiceImpl implements ShopPropertyService {
         map.put("isDel",isDel);
         shopPropertyDao.deleteShopPropertyById(map);
     }
+
+    @Override
+    public List<ShopProperty> getAllData() {
+        ;
+        return shopPropertyDao.getAllData();
+    }
 }

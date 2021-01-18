@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.util.List;
 import java.util.Map;
 
 @RestController
@@ -35,6 +36,22 @@ public class ShopPropertyController {
         Map map= shopPropertyService.selectShopPropertyByParma(parms);
         return ResponseData.success(map);
     }
+
+
+
+    /*
+     * 接口   http://192.168.1.224:8083/api/property/getAllData
+     *
+     * 参数  page当前页数  limit条数  必传
+     *
+     * */
+    @GetMapping("getAllData")
+    public ResponseData getAllData(){
+
+       List<ShopProperty> list= shopPropertyService.getAllData();
+        return ResponseData.success(list);
+    }
+
 
     /*
      * 接口   http://192.168.1.224:8083/api/property/add

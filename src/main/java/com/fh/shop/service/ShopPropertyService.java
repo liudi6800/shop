@@ -12,5 +12,5 @@ public interface ShopPropertyService {
 
     void updateShopProperty(ShopProperty shopProperty);
 
-    void deleteShopPropertyById(Integer id);
+    void deleteShopPropertyById(Integer id, Integer isDel);
 }

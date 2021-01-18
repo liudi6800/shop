@@ -70,11 +70,11 @@ public class ShopPropertyController {
      *
      * */
     @DeleteMapping("delete")
-    public ResponseData deleteShopPropertyById(Integer  id){
+    public ResponseData deleteShopPropertyById(Integer  id,Integer isDel){
         if(id==null){
             return ResponseData.error(400,"非法请求");
         }
-        shopPropertyService.deleteShopPropertyById(id);
+        shopPropertyService.deleteShopPropertyById(id,isDel);
         return ResponseData.success(null);
     }
 

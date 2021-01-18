@@ -6,6 +6,7 @@ import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Update;
 
 import java.util.List;
+import java.util.Map;
 
 public interface ShopPropertyDao {
 
@@ -18,6 +19,6 @@ public interface ShopPropertyDao {
 
     void updateShopProperty(ShopProperty shopProperty);
 
-    @Update("update s_shop_property set isDel=1  where id=#{id}")
-    void deleteShopPropertyById(Integer id);
+    @Update("update s_shop_property set isDel=#{isDel}  where id=#{id}")
+    void deleteShopPropertyById(Map map);
 }

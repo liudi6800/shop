@@ -43,7 +43,10 @@ public class ShopPropertyServiceImpl implements ShopPropertyService {
     }
 
     @Override
-    public void deleteShopPropertyById(Integer id) {
-        shopPropertyDao.deleteShopPropertyById(id);
+    public void deleteShopPropertyById(Integer id, Integer isDel) {
+        Map map=new HashMap();
+        map.put("id",id);
+        map.put("isDel",isDel);
+        shopPropertyDao.deleteShopPropertyById(map);
     }
 }

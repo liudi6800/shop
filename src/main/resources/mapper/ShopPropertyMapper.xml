@@ -10,7 +10,7 @@
         <if test="name!=null  and name!=''">
             and name like '%${name}%'
         </if>
-          and isDel = 0
+
     </select>
 
     <select id="selectShopPropertyData" parameterType="com.fh.shop.entity.vo.ShopPropertyParms" resultType="com.fh.shop.entity.po.ShopProperty">
@@ -18,8 +18,6 @@
         <if test="name!=null  and name!=''">
             and name like '%${name}%'
         </if>
-         and isDel = 0
-
         limit #{startIndex},#{limit}
     </select>
 

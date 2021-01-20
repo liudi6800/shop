@@ -55,4 +55,9 @@ public class ShopPropertyServiceImpl implements ShopPropertyService {
         ;
         return shopPropertyDao.getAllData();
     }
+
+    @Override
+    public List<ShopProperty> selectShopProByTypeId(Integer typeId) {
+        return shopPropertyDao.selectShopProByTypeId(typeId);
+    }
 }

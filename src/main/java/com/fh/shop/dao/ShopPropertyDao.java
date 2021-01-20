@@ -25,4 +25,7 @@ public interface ShopPropertyDao {
 
     @Select("select * from s_shop_property")
     List<ShopProperty> getAllData();
+
+    @Select("select * from s_shop_property where typeId=#{typeId}  and  isDel=0")
+    List<ShopProperty> selectShopProByTypeId(Integer typeId);
 }

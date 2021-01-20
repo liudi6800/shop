@@ -17,6 +17,8 @@ public class Shop {
 
     private String  productdecs;//  商品介绍
 
+    private String imgPath;
+
     private Double price;//   价格
 
     private  Integer  stocks;//  库存
@@ -52,6 +54,14 @@ public class Shop {
 
     public String getTitle() {
         return title;
+    }
+
+    public String getImgPath() {
+        return imgPath;
+    }
+
+    public void setImgPath(String imgPath) {
+        this.imgPath = imgPath;
     }
 
     public void setTitle(String title) {

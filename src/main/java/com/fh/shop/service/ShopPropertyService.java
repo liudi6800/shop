@@ -16,4 +16,8 @@ public interface ShopPropertyService {
     void deleteShopPropertyById(Integer id, Integer isDel);
 
     List<ShopProperty> getAllData();
+
+    List<ShopProperty> selectShopProByTypeId(Integer typeId);
+
+
 }

@@ -14,11 +14,11 @@ public interface ShopDao {
 
     public List<Shop> selectShopData(ShopParms parms);
 
-    @Insert("insert into s_shop (name,title,bandId,productdecs,imgPath,price,stocks,sortNum,createDate,updateDate,author,isDel)" +
+    @Insert("insert into s_shop (name,title,bandId,productdecs,imgPath,typeId,price,stocks,sortNum,createDate,updateDate,author,isDel)" +
             " value(#{name},#{title},#{bandId},#{productdecs},#{imgPath},#{price},#{stocks},#{sortNum},#{createDate},#{updateDate},#{author},#{isDel})")
     public void addShop(Shop shop);
 
-    @Update("update s_shop set name=#{name},title=#{title},bandId=#{bandId},productdecs=#{productdecs},imgPath=#{imgPath},price=#{price},stocks=#{stocks},sortNum=#{sortNum},createDate=#{createDate},updateDate=#{updateDate},author=#{author},isDel=#{isDel}" +
+    @Update("update s_shop set name=#{name},title=#{title},bandId=#{bandId},typeId=#{typeId},productdecs=#{productdecs},imgPath=#{imgPath},price=#{price},stocks=#{stocks},sortNum=#{sortNum},createDate=#{createDate},updateDate=#{updateDate},author=#{author},isDel=#{isDel}" +
             "  where id=#{id}")
     public void updataShop(Shop shop);
     @Update("update s_shop set isDel=#{isDel}  where id=#{id}")

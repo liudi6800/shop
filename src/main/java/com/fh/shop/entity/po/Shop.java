@@ -15,6 +15,8 @@ public class Shop {
 
     private  Integer  bandId;//  品牌id
 
+    private Integer typeId;
+
     private String  productdecs;//  商品介绍
 
     private String imgPath;
@@ -138,5 +140,13 @@ public class Shop {
 
     public void setIsDel(int isDel) {
         this.isDel = isDel;
+    }
+
+    public Integer getTypeId() {
+        return typeId;
+    }
+
+    public void setTypeId(Integer typeId) {
+        this.typeId = typeId;
     }
 }

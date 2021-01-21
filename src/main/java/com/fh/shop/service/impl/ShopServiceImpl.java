@@ -1,21 +1,28 @@
 package com.fh.shop.service.impl;
 
+import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
 import com.fh.shop.dao.ShopDao;
+import com.fh.shop.dao.ShopTypeDataDao;
 import com.fh.shop.entity.po.Shop;
+import com.fh.shop.entity.po.ShopTypeData;
 import com.fh.shop.entity.vo.ShopParms;
 import com.fh.shop.service.ShopService;
+import com.google.gson.JsonObject;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
 import javax.annotation.Resource;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Service
 public class ShopServiceImpl implements ShopService {
 
     @Resource
     private ShopDao shopDao;
+
+    @Resource
+    private ShopTypeDataDao shopTypeDataDao;
 
 
     @Override
@@ -30,11 +37,37 @@ public class ShopServiceImpl implements ShopService {
     }
 
     @Override
-    public void addShop(Shop shop) {
+    @Transactional
+    public void addShop(Shop shop, String proData, String skuData) {
         Date now=new Date();
         shop.setCreateDate(now);
         shop.setUpdateDate(now);
         shopDao.addShop(shop);
+        List<ShopTypeData> list=new ArrayList<>();
+
+        JSONArray objects = JSONObject.parseArray(proData);
+        for (int i = 0; i <objects.size() ; i++) {
+            ShopTypeData std=new ShopTypeData();
+            std.setShopId(shop.getId());
+            std.setAttrData(objects.get(i).toString());
+            list.add(std);
+        }
+
+        JSONArray obSku = JSONObject.parseArray(skuData);
+        for (int i = 0; i <obSku.size() ; i++) {
+             JSONObject o= (JSONObject) obSku.get(i);
+             ShopTypeData sh=new ShopTypeData();
+             sh.setPrice(o.getDouble("prices"));
+             sh.setStorcks(o.getInteger("storcks"));
+             sh.setShopId(shop.getId());
+             o.remove("prices");
+             o.remove("storcks");
+             sh.setAttrData(obSku.get(i).toString());
+            list.add(sh);
+        }
+
+        shopTypeDataDao.addShopTypeData(list);
+
     }
 
     @Override

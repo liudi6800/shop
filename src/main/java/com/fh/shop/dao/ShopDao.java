@@ -3,6 +3,7 @@ package com.fh.shop.dao;
 import com.fh.shop.entity.po.Shop;
 import com.fh.shop.entity.vo.ShopParms;
 import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.Options;
 import org.apache.ibatis.annotations.Update;
 
 import java.util.List;
@@ -15,8 +16,9 @@ public interface ShopDao {
     public List<Shop> selectShopData(ShopParms parms);
 
     @Insert("insert into s_shop (name,title,bandId,productdecs,imgPath,typeId,price,stocks,sortNum,createDate,updateDate,author,isDel)" +
-            " value(#{name},#{title},#{bandId},#{productdecs},#{imgPath},#{price},#{stocks},#{sortNum},#{createDate},#{updateDate},#{author},#{isDel})")
-    public void addShop(Shop shop);
+            " value(#{name},#{title},#{bandId},#{productdecs},#{imgPath},#{typeId},#{price},#{stocks},#{sortNum},#{createDate},#{updateDate},#{author},#{isDel})")
+    @Options(useGeneratedKeys = true, keyProperty = "id")
+    public int addShop(Shop shop);
 
     @Update("update s_shop set name=#{name},title=#{title},bandId=#{bandId},typeId=#{typeId},productdecs=#{productdecs},imgPath=#{imgPath},price=#{price},stocks=#{stocks},sortNum=#{sortNum},createDate=#{createDate},updateDate=#{updateDate},author=#{author},isDel=#{isDel}" +
             "  where id=#{id}")

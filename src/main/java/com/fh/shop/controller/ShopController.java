@@ -41,7 +41,7 @@ public class ShopController {
 
     /*
      *
-     *http://localhost:8083/api/shop/addShop  路径
+     *   http://localhost:8083/api/shop/addShop  路径
      *
      * post 请求
      *    前台表单验证  名称  标题  图片 必填项
@@ -49,8 +49,8 @@ public class ShopController {
      *
      * */
     @PostMapping("addShop")
-    public ResponseData addShop(Shop  shop){
-         shopService.addShop(shop);
+    public ResponseData addShop(Shop  shop,String proData ,String skuData){
+         shopService.addShop(shop,proData,skuData);
         return ResponseData.success("");
     }
 

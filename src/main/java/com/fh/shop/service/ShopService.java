@@ -8,9 +8,11 @@ import java.util.Map;
 public interface ShopService {
     Map selectShop(ShopParms parms);
 
-    void addShop(Shop shop);
+    void addShop(Shop shop, String proData, String skuData);
 
     void updateShop(Shop shop);
 
     void delShop(Integer isDel, Integer id);
+
+
 }

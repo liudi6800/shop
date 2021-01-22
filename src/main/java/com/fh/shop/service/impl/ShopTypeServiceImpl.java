@@ -7,7 +7,9 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class ShopTypeServiceImpl implements ShopTypeService {
@@ -40,4 +42,8 @@ public class ShopTypeServiceImpl implements ShopTypeService {
         shopType.setUpdateDate(new Date());
         shopTypeDao.updateShopType(shopType);
     }
+
+
+
+
 }

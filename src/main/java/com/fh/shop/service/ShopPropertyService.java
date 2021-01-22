@@ -19,5 +19,5 @@ public interface ShopPropertyService {
 
     List<ShopProperty> selectShopProByTypeId(Integer typeId);
 
-
+    Map selectShopProDataByTypeId(Integer typeId);
 }

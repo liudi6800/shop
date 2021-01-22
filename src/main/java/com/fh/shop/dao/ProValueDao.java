@@ -23,4 +23,7 @@ public interface ProValueDao {
     void updateProValue(ProValue proValue);
 
     void delProValue(Integer id);
+
+    @Select("select * from u_shop_provalue where proId=#{id}")
+    List<ProValue> selectProValueDataByproId(Integer id);
 }

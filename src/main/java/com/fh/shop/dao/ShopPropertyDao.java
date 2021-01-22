@@ -1,6 +1,7 @@
 package com.fh.shop.dao;
 
 import com.fh.shop.entity.po.ShopProperty;
+import com.fh.shop.entity.vo.ProParmValue;
 import com.fh.shop.entity.vo.ShopPropertyParms;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Select;
@@ -28,4 +29,10 @@ public interface ShopPropertyDao {
 
     @Select("select * from s_shop_property where typeId=#{typeId}  and  isDel=0")
     List<ShopProperty> selectShopProByTypeId(Integer typeId);
+
+
+    @Select("select * from s_shop_property where typeId=#{typeId}  and isSKU=0")
+    List<ProParmValue> selectShopProIsSku(Integer typeId);
+    @Select("select * from s_shop_property where typeId=#{typeId}  and isSKU=1")
+    List<ProParmValue> selectShopProNoIsSku(Integer typeId);
 }

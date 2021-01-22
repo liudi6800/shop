@@ -1,12 +1,15 @@
 package com.fh.shop.controller;
 
 import com.fh.shop.entity.po.Shop;
+import com.fh.shop.entity.po.ShopTypeData;
 import com.fh.shop.entity.vo.ResponseData;
 import com.fh.shop.entity.vo.ShopParms;
 import com.fh.shop.service.ShopService;
+import org.apache.ibatis.annotations.Select;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Map;
 
 @RestController
@@ -38,6 +41,11 @@ public class ShopController {
         Map map=shopService.selectShop(parms);
         return ResponseData.success(map);
     }
+
+
+
+
+
 
     /*
      *
@@ -85,4 +93,8 @@ public class ShopController {
         shopService.delShop(isDel,id);
         return ResponseData.success("");
     }
+
+
+
+
 }

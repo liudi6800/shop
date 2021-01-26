@@ -73,8 +73,6 @@ public class ShopServiceImpl implements ShopService {
              sh.setPrices(o.getDouble("prices"));
              sh.setStorcks(o.getInteger("storcks"));
              sh.setShopId(shop.getId());
-             o.remove("prices");
-             o.remove("storcks");
              sh.setAttrData(obSku.get(i).toString());
             list.add(sh);
         }

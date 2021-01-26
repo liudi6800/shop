@@ -4,10 +4,7 @@ import com.fh.shop.entity.po.ShopTypeData;
 import com.fh.shop.entity.vo.ResponseData;
 import com.fh.shop.service.ShopTypeDataService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 @RestController
@@ -33,4 +30,9 @@ public class ShopTypeDataController {
         List<ShopTypeData> list=shopTypeDataService .selectTypeDataByShopId(shopId);
         return ResponseData.success(list);
     }
+
+
+
+
+
 }

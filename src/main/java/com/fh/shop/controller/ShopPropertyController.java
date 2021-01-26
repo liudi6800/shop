@@ -96,14 +96,15 @@ public class ShopPropertyController {
     }
 
     /*
-     * 接口   http://192.168.1.224:8083/api/property/selectShopProByTypeId
+     * 接口   http://192.168.1.224:8083/api/property/selectShopProByproId
      *
      * 参数    id必传
      *
      * */
-    @GetMapping("selectShopProByTypeId")
-    public ResponseData selectShopProByTypeId(Integer typeId){
-        return ResponseData.success(shopPropertyService.selectShopProByTypeId(typeId));
+    @GetMapping("selectShopProByproId")
+    public ResponseData selectShopProByproId(Integer proId){
+      Map map=  shopPropertyService.selectShopProByproId(proId);
+        return ResponseData.success(map);
     }
     /*
      * 接口   http://192.168.1.224:8083/api/property/selectShopProDataByTypeId

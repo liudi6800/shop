@@ -69,26 +69,37 @@ public class ShopPropertyServiceImpl implements ShopPropertyService {
 
         Map map=new HashMap();
 
-        List<ProParmValue> list=shopPropertyDao.selectShopProIsSku(typeId);
-        for (int i = 0; i <list.size() ; i++) {
-            List<ProValue> proValues = proValueDao.selectProValueDataByproId(list.get(i).getId());
-            list.get(i).setValues(proValues);
-            List list3=new ArrayList();
-            list.get(i).setIsCheck(list3);
+        List<ProParmValue> attrs=shopPropertyDao.selectShopProData(typeId);
+
+        List<Object> skuDats=new ArrayList<>();
+        //声明attrDatas
+        List<Object> attrDatas=new ArrayList<>();
+        //遍历所有的属性数据
+        for (int i = 0; i <attrs.size() ; i++) {
+            //得到具体的一个属性
+            ProParmValue proParmValue = attrs.get(i);
+            //判断此属性是否为sku
+            if(proParmValue.getIsSku()==0){
+                //判断此属性的类型   如果是input 没有values
+                if(proParmValue.getType()!=3){
+                    //查询此属性 对应的选项值
+                    List<ProValue> proValues = proValueDao.selectProValueDataByproId(proParmValue.getId());
+                    proParmValue.setValues(proValues);
+                }
+                skuDats.add(proParmValue);
+            }else{//是sku数据
+                //判断此属性的类型   如果是input 没有values
+                if(proParmValue.getType()!=3){
+                    //查询此属性 对应的选项值
+                    List<ProValue> proValues = proValueDao.selectProValueDataByproId(proParmValue.getId());
+                    proParmValue.setValues(proValues);
+                }
+                attrDatas.add(proParmValue);
+            }
         }
 
-        List<ProParmValue> list2=shopPropertyDao.selectShopProNoIsSku(typeId);
-
-        for (ProParmValue proParmValue : list2) {
-            List<ProValue> proValues = proValueDao.selectProValueDataByproId(proParmValue.getId());
-            proParmValue.setValues(proValues);
-            List list4=new ArrayList();
-            proParmValue.setIsCheck(list4);
-        }
-
-
-        map.put("skuDatas",list);
-        map.put("noSkuData",list2);
+        map.put("skuDatas",skuDats);
+        map.put("noSkuData",attrDatas);
         return map;
     }
 

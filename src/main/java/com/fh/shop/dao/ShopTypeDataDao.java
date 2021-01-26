@@ -10,9 +10,9 @@ public interface ShopTypeDataDao {
 
 
     @Insert("<script> " +
-            "insert into s_shop_typedata (shopId,attrData,storcks,price) " +
+            "insert into s_shop_typedata (shopId,attrData,storcks,prices) " +
             "values <foreach  collection='list' item='a'  separator=','> " +
-            "(#{a.shopId},#{a.attrData},#{a.storcks},#{a.price})" +
+            "(#{a.shopId},#{a.attrData},#{a.storcks},#{a.prices})" +
             "</foreach></script>")
     void addShopTypeData(List<ShopTypeData> list);
 

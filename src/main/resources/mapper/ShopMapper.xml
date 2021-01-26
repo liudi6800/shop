@@ -17,6 +17,7 @@
         <if test="name!=null  and name!=''">
             and name like '%${name}%'
         </if>
+        ORDER BY id desc
         limit #{startIndex},#{limit}
     </select>
 

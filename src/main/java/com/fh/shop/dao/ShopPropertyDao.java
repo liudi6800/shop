@@ -31,8 +31,7 @@ public interface ShopPropertyDao {
     List<ShopProperty> selectShopProByTypeId(Integer typeId);
 
 
-    @Select("select * from s_shop_property where typeId=#{typeId}  and isSKU=0")
-    List<ProParmValue> selectShopProIsSku(Integer typeId);
-    @Select("select * from s_shop_property where typeId=#{typeId}  and isSKU=1")
-    List<ProParmValue> selectShopProNoIsSku(Integer typeId);
+    @Select("select * from s_shop_property where typeId=#{typeId}")
+    List<ProParmValue> selectShopProData(Integer typeId);
+
 }

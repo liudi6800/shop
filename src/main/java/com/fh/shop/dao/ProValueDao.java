@@ -19,7 +19,7 @@ public interface ProValueDao {
     void addProValue(ProValue proValue);
 
 
-    @Update("update u_shop_provalue set name=#{name} where id=#{id}")
+    @Update("update u_shop_provalue set nameCH=#{nameCH} where id=#{id}")
     void updateProValue(ProValue proValue);
 
     void delProValue(Integer id);

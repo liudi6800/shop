@@ -94,7 +94,16 @@ public class ShopController {
         return ResponseData.success("");
     }
 
-
+    /*
+     *
+     *http://localhost:8083/api/shop/selectShopData  路径
+     *
+     * get 请求
+     *
+     *  假删除  相当于上下架  前台给个开关最好
+     *  相当于展示
+     *
+     * */
 
 
 }

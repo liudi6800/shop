@@ -2,10 +2,14 @@ package com.fh.shop.service.impl;
 
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
+import com.fh.shop.dao.ProValueDao;
 import com.fh.shop.dao.ShopDao;
+import com.fh.shop.dao.ShopPropertyDao;
 import com.fh.shop.dao.ShopTypeDataDao;
+import com.fh.shop.entity.po.ProValue;
 import com.fh.shop.entity.po.Shop;
 import com.fh.shop.entity.po.ShopTypeData;
+import com.fh.shop.entity.vo.ProParmValue;
 import com.fh.shop.entity.vo.ShopParms;
 import com.fh.shop.service.ShopService;
 import com.google.gson.JsonObject;
@@ -24,6 +28,15 @@ public class ShopServiceImpl implements ShopService {
     @Resource
     private ShopTypeDataDao shopTypeDataDao;
 
+    @Resource
+    private ShopPropertyDao shopPropertyDao;
+
+    @Resource
+    private ProValueDao proValueDao;
+
+
+    public ShopServiceImpl() {
+    }
 
     @Override
     public Map selectShop(ShopParms parms) {
@@ -57,7 +70,7 @@ public class ShopServiceImpl implements ShopService {
         for (int i = 0; i <obSku.size() ; i++) {
              JSONObject o= (JSONObject) obSku.get(i);
              ShopTypeData sh=new ShopTypeData();
-             sh.setPrice(o.getDouble("prices"));
+             sh.setPrices(o.getDouble("prices"));
              sh.setStorcks(o.getInteger("storcks"));
              sh.setShopId(shop.getId());
              o.remove("prices");
@@ -85,4 +98,7 @@ public class ShopServiceImpl implements ShopService {
         shopDao.delShop(map);
 
     }
+
+
+
 }

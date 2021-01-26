@@ -82,7 +82,7 @@ public class ProValueController {
      *
      * */
     @DeleteMapping("delProValue")
-    public ResponseData delProValue(Integer  id){
+    public ResponseData d1elProValue(Integer  id){
         if(id==null){
             return ResponseData.error(400,"非法参数");
         }

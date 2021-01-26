@@ -1,7 +1,5 @@
 package com.fh.shop.entity.vo;
 
-import java.lang.reflect.Array;
-
 public class ProParmValue {
     private Integer id;
 

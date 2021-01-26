@@ -15,4 +15,5 @@ public interface ShopService {
     void delShop(Integer isDel, Integer id);
 
 
+
 }

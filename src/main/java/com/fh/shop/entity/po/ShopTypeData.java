@@ -9,7 +9,7 @@ public class ShopTypeData {
 
     private Integer storcks;
 
-    private Double price;
+    private Double prices;
     public Integer getId() {
         return id;
 
@@ -43,11 +43,11 @@ public class ShopTypeData {
         this.storcks = storcks;
     }
 
-    public Double getPrice() {
-        return price;
+    public Double getPrices() {
+        return prices;
     }
 
-    public void setPrice(Double price) {
-        this.price = price;
+    public void setPrices(Double prices) {
+        this.prices = prices;
     }
 }

@@ -19,6 +19,13 @@
         limit #{startIndex},#{limit}
     </select>
 
+    <insert id="addUserRole" parameterType="java.util.List">
+        insert into u_userrole (uid,rid)
+        values
+        <foreach collection="list" item="item" index="index" separator=",">
+            (#{item.uid},#{item.rid})
+        </foreach>
 
+    </insert>
 
 </mapper>

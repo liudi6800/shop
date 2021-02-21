@@ -1,6 +1,7 @@
 package com.fh.shop.controller;
 
 import com.fh.shop.entity.po.Menu;
+import com.fh.shop.entity.po.RoleMenu;
 import com.fh.shop.entity.vo.ResponseData;
 import com.fh.shop.service.UserMenuService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -54,6 +55,26 @@ public class UserMenuController {
     public ResponseData updateMenu(Menu menu){
         userMenuService.updateMenu(menu);
         return ResponseData.success(null);
+    }
+
+    /*角色赋权限
+     * 请求路径 http://localhost:8083/api/menu/addRoleMenu
+     * 返回值   {code:200,message:"处理成功",data:null}
+     * */
+    @PostMapping("addRoleMenu")
+    public ResponseData addRoleMenu(Integer  rid,String  menus){
+        userMenuService.addRoleMenu(rid,menus);
+        return ResponseData.success(null);
+    }
+
+    /*角色赋权限
+     * 请求路径 http://localhost:8083/api/menu/selectRoleMenuDataByRid
+     * 返回值   {code:200,message:"处理成功",data:null}
+     * */
+    @GetMapping("selectRoleMenuDataByRid")
+    public ResponseData selectRoleMenuDataByRid(Integer  rid){
+       List<RoleMenu> list=userMenuService.selectRoleMenuDataByRid(rid);
+        return ResponseData.success(list);
     }
 
 }

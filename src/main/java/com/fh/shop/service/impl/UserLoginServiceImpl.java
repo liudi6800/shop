@@ -1,6 +1,7 @@
 package com.fh.shop.service.impl;
 
 import com.fh.shop.dao.UserLoginDao;
+import com.fh.shop.entity.po.Menu;
 import com.fh.shop.entity.po.User;
 import com.fh.shop.service.UserLoginService;
 import com.fh.shop.utils.MD5Util;
@@ -9,6 +10,7 @@ import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @Service
@@ -50,6 +52,14 @@ public class UserLoginServiceImpl implements UserLoginService {
             map.put("code",1);//用户不存在
         }
         return map;
+    }
+
+    @Override
+    public List<Menu> selectUserMeunData(String name) {
+        User user1= userLoginDao.selectUserByName(name);
+        List<Menu>list=userLoginDao.selectUserMeunData(user1.getId());
+
+        return list;
     }
 
 
